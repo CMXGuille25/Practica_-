@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PRACTICA__.Models.Countries>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.COUNTRY_NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Regions)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.COUNTRY_NAME)
+            </td>
+            <td>
+                    @{
+                        string regionInfo = item.Regions.REGION_ID + " - " + item.Regions.REGION_NAME;
+                    }
+
+                    @Html.DisplayFor(modelItem => regionInfo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.COUNTRY_ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.COUNTRY_ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.COUNTRY_ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

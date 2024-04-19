@@ -1,0 +1,48 @@
+﻿@model PRACTICA__.Models.Locations
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Locations</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ADDRESS)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ADDRESS)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.POSTAL_CODE)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.POSTAL_CODE)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CITY)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CITY)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.STATE)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.STATE)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Countries)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Countries.COUNTRY_ID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.LOCATION_ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

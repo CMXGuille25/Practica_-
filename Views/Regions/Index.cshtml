@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PRACTICA__.Models.Regions>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.REGION_NAME)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int counter = 1;
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @counter
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REGION_NAME)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.REGION_ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.REGION_ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.REGION_ID">Delete</a>
+                </td>
+            </tr>
+            counter++;
+        }
+    </tbody>
+</table>
+

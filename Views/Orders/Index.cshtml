@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PRACTICA__.Models.Orders>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>ORDERS</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.STATUS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ORDER_DATE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employees)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.STATUS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ORDER_DATE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customers.CUSTOMER_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employees.EMPLOYEE_ID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ORDER_ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ORDER_ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ORDER_ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

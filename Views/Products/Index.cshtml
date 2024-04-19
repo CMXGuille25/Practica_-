@@ -1,0 +1,59 @@
+﻿@model IEnumerable<PRACTICA__.Models.Products>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PRODUCT_NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DESCRIPTION)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.STANDARD_COST)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LIST_PRICE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product_categories)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PRODUCT_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DESCRIPTION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.STANDARD_COST)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LIST_PRICE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_categories.CATEGORY_ID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PRODUCT_ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PRODUCT_ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PRODUCT_ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

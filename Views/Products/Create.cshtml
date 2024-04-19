@@ -1,0 +1,52 @@
+﻿@model PRACTICA__.Models.Products
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Products</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PRODUCT_NAME" class="control-label"></label>
+                <input asp-for="PRODUCT_NAME" class="form-control" />
+                <span asp-validation-for="PRODUCT_NAME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DESCRIPTION" class="control-label"></label>
+                <input asp-for="DESCRIPTION" class="form-control" />
+                <span asp-validation-for="DESCRIPTION" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="STANDARD_COST" class="control-label"></label>
+                <input asp-for="STANDARD_COST" class="form-control" />
+                <span asp-validation-for="STANDARD_COST" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LIST_PRICE" class="control-label"></label>
+                <input asp-for="LIST_PRICE" class="form-control" />
+                <span asp-validation-for="LIST_PRICE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CATEGORY_ID" class="control-label"></label>
+                <select asp-for="CATEGORY_ID" class ="form-control" asp-items="ViewBag.CATEGORY_ID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
